@@ -1,5 +1,8 @@
 package org.taskmngr.dao;
 
+import jakarta.persistence.EntityManager;
+import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.PersistenceContextType;
 import lombok.RequiredArgsConstructor;
 import org.taskmngr.api.repository.GenericDao;
 
@@ -7,9 +10,13 @@ import org.taskmngr.api.repository.GenericDao;
 public abstract class AbstractDao<T> implements GenericDao<T> {
     private final Class<T> entityClass;
 
+    @PersistenceContext(type = PersistenceContextType.TRANSACTION)
+    private EntityManager entityManager;
+
     @Override
-    public T create() {
-        return null;
+    public T create(T t) {
+        entityManager.persist(t);
+        return t;
     }
 
     @Override

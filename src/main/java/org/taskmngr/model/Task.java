@@ -13,7 +13,5 @@ public class Task {
     private String comments;
     private Priority priority;
     private Status status;
-    private Author author;
-    private Executor executor;
 
 }

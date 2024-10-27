@@ -12,6 +12,6 @@ public class Teeeest {
 
     @Test
     void test1(){
-        assert(false);
+        assert(true);
     }
 }

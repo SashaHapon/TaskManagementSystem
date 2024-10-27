@@ -24,9 +24,13 @@ jobs:
           cache: maven
       - name: Make maven wrapper script executable for Order Manager
         run: chmod +x ./mvnw
-      - name: Build order manager
+      - name: Test
+        run: ./mvnw -f pom.xml clean test
+      - name: Build
         run: ./mvnw -f pom.xml package
 
-      - name: Publish test reports
-        if: success() || failure()
+      - name: Publish Test Reports
+        if: always()
         uses: scacap/action-surefire-report@v1
+        with:
+          report_paths: '**/target/surefire-reports/*.xml'

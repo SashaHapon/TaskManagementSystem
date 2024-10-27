@@ -1,11 +1,13 @@
+import org.junit.jupiter.api.Test;
 
-public class Test {
+public class Teeeest {
 
-    @org.junit.jupiter.api.Test
+    @Test
     void test(){
         assert(true);
     }
 
+    @Test
     void test1(){
         assert(false);
     }

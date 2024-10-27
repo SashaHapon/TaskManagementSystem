@@ -5,4 +5,8 @@ public class Test {
     void test(){
         assert(true);
     }
+
+    void test1(){
+        assert(false);
+    }
 }

@@ -23,9 +23,9 @@ jobs:
           java-version: '17'
           cache: maven
       - name: Make maven wrapper script executable for Order Manager
-        run: chmod +x ./mvnw
+        run: chmod +x mvnw
       - name: Build order manager
-        run: ./mvnw -f pom.xml package
+        run: mvnw -f pom.xml package
 
       - name: Publish test reports
         if: success() || failure()

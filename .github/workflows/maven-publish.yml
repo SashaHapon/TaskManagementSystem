@@ -24,10 +24,11 @@ jobs:
           cache: maven
       - name: Make maven wrapper script executable for Order Manager
         run: chmod +x ./mvnw
-      - name: Test
-        run: ./mvnw -f pom.xml clean test
+
       - name: Build
         run: ./mvnw -f pom.xml package
+      - name: Test
+        run: ./mvnw -f pom.xml test
 
       - name: Publish Test Reports
         if: always()
